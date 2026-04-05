@@ -8,32 +8,19 @@ import {
   Button,
   Link,
   Icon,
-  SimpleGrid,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import {
   FaGithub,
-  FaCode,
-  FaStar,
-  FaCodeBranch,
   FaArrowRight,
 } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const MotionBox = motion(Box);
 
 const GitHubShowcase = () => {
-  const [repos, setRepos] = useState(20); // Approximate number
-  const [stars, setStars] = useState(0);
-
   useEffect(() => {
-    // Animate counters
-    const timer1 = setTimeout(() => setRepos(20), 500);
-    const timer2 = setTimeout(() => setStars(15), 800);
-    return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-    };
+    // Component mounted animations
   }, []);
 
   return (
@@ -44,7 +31,7 @@ const GitHubShowcase = () => {
       overflow="hidden"
       bg="#000000"
     >
-      {/* Animated background elements - monochrome */}
+      {/* Animated background elements */}
       <Box
         position="absolute"
         top="0"
@@ -123,116 +110,21 @@ const GitHubShowcase = () => {
               mx="auto"
               lineHeight="1.8"
             >
-              I've built numerous projects across different domains - from
-              machine learning and full-stack (Python) applications and
-              Java(SpringBoot) to mobile apps and web development. Each
-              repository represents a learning journey and a solution to
-              real-world problems.
+              I've built numerous projects across Machine Learning, Data Science, 
+              NLP, and Generative AI — from recommendation systems and credit risk 
+              models to RAG pipelines and cybersecurity dashboards. Each repository 
+              represents a learning journey and a solution to real-world problems.
             </Text>
           </MotionBox>
-
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="100%">
-            <MotionBox
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Box
-                p={8}
-                bg="rgba(20, 20, 20, 0.8)"
-                backdropFilter="blur(20px)"
-                border="1px solid"
-                borderColor="rgba(255, 255, 255, 0.2)"
-                borderRadius="2xl"
-                textAlign="center"
-                _hover={{
-                  borderColor: "rgba(255, 255, 255, 0.4)",
-                  transform: "translateY(-8px)",
-                  boxShadow: "0 20px 60px rgba(255, 255, 255, 0.1)",
-                }}
-                transition="all 0.4s ease"
-              >
-                <Icon as={FaCode} boxSize={12} color="#ffffff" mb={4} />
-                <Text fontSize="4xl" fontWeight="bold" color="white" mb={2}>
-                  {repos}+
-                </Text>
-                <Text color="gray.300" fontSize="lg">
-                  Public Repositories
-                </Text>
-              </Box>
-            </MotionBox>
-
-            <MotionBox
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <Box
-                p={8}
-                bg="rgba(20, 20, 20, 0.8)"
-                backdropFilter="blur(20px)"
-                border="1px solid"
-                borderColor="rgba(255, 255, 255, 0.2)"
-                borderRadius="2xl"
-                textAlign="center"
-                _hover={{
-                  borderColor: "rgba(255, 255, 255, 0.4)",
-                  transform: "translateY(-8px)",
-                  boxShadow: "0 20px 60px rgba(255, 255, 255, 0.1)",
-                }}
-                transition="all 0.4s ease"
-              >
-                <Icon as={FaStar} boxSize={12} color="#e5e5e5" mb={4} />
-                <Text fontSize="4xl" fontWeight="bold" color="white" mb={2}>
-                  {stars}+
-                </Text>
-                <Text color="gray.300" fontSize="lg">
-                  Stars Received
-                </Text>
-              </Box>
-            </MotionBox>
-
-            <MotionBox
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <Box
-                p={8}
-                bg="rgba(20, 20, 20, 0.8)"
-                backdropFilter="blur(20px)"
-                border="1px solid"
-                borderColor="rgba(255, 255, 255, 0.2)"
-                borderRadius="2xl"
-                textAlign="center"
-                _hover={{
-                  borderColor: "rgba(255, 255, 255, 0.4)",
-                  transform: "translateY(-8px)",
-                  boxShadow: "0 20px 60px rgba(255, 255, 255, 0.1)",
-                }}
-                transition="all 0.4s ease"
-              >
-                <Icon as={FaCodeBranch} boxSize={12} color="#d4d4d4" mb={4} />
-                <Text fontSize="4xl" fontWeight="bold" color="white" mb={2}>
-                  Active
-                </Text>
-                <Text color="gray.300" fontSize="lg">
-                  Continuous Development
-                </Text>
-              </Box>
-            </MotionBox>
-          </SimpleGrid>
 
           <MotionBox
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
+            textAlign="center"
           >
-            <Link href="https://github.com/Saugat1017" isExternal>
+            <Link href="https://github.com/sohamnp06" isExternal>
               <Button
                 size="lg"
                 rightIcon={<FaArrowRight />}

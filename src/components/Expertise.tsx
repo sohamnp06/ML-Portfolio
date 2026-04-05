@@ -11,27 +11,20 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import {
-  FaReact,
   FaPython,
-  FaJava,
-  FaAws,
   FaDatabase,
-  FaGitAlt,
   FaBrain,
-  FaMobile,
   FaCode,
+  FaChartBar,
 } from "react-icons/fa";
 import {
-  SiJavascript,
-  SiMongodb,
-  SiPostgresql,
-  SiMysql,
-  SiPytorch,
   SiScikitlearn,
-  SiSpring,
-  SiAndroid,
-  SiDocker,
+  SiPytorch,
+  SiTensorflow,
   SiFlask,
+  SiPostgresql,
+  SiPandas,
+  SiNumpy,
 } from "react-icons/si";
 
 const MotionBox = motion(Box);
@@ -41,46 +34,44 @@ const expertiseData = [
     category: "Programming Languages",
     icon: FaCode,
     skills: [
-      { name: "Java", level: 90, icon: FaJava },
-      { name: "Python", level: 90, icon: FaPython },
-      { name: "JavaScript", level: 75, icon: SiJavascript },
-      { name: "C/C++", level: 80, icon: FaDatabase },
-      { name: "R", level: 70, icon: FaDatabase },
-    ],
-  },
-  {
-    category: "Web Development",
-    icon: FaReact,
-    skills: [
-      { name: "React", level: 70, icon: FaReact },
-      { name: "Spring Boot", level: 90, icon: SiSpring },
-      { name: "Flask/FastAPI", level: 85, icon: SiFlask },
-      { name: "HTML5/CSS3", level: 90, icon: FaReact },
-      { name: "RESTful APIs", level: 90, icon: FaReact },
-    ],
-  },
-  {
-    category: "Mobile & Databases",
-    icon: FaMobile,
-    skills: [
-      { name: "Android SDK", level: 85, icon: SiAndroid },
-      { name: "MySQL", level: 90, icon: SiMysql },
-      { name: "SQLite", level: 85, icon: SiPostgresql },
-      { name: "MongoDB", level: 80, icon: SiMongodb },
+      { name: "Python", level: 95, icon: FaPython },
       { name: "SQL", level: 90, icon: FaDatabase },
+      { name: "Java", level: 80, icon: FaCode },
+      { name: "C++", level: 75, icon: FaCode },
     ],
   },
   {
-    category: "AI/ML & Cloud",
+    category: "Machine Learning & AI",
     icon: FaBrain,
     skills: [
+      { name: "Scikit-learn", level: 92, icon: SiScikitlearn },
+      { name: "PyTorch", level: 88, icon: SiPytorch },
+      { name: "TensorFlow", level: 85, icon: SiTensorflow },
       { name: "Hugging Face", level: 85, icon: FaBrain },
-      { name: "scikit-learn", level: 90, icon: SiScikitlearn },
-      { name: "PyTorch", level: 80, icon: SiPytorch },
-      { name: "AWS (RDS, Glue)", level: 85, icon: FaAws },
-      { name: "Apache Kafka", level: 75 },
-      { name: "Docker", level: 80, icon: SiDocker },
-      { name: "Git", level: 90, icon: FaGitAlt },
+      { name: "NLTK", level: 85, icon: FaBrain },
+      { name: "Kaggle", level: 80, icon: FaBrain },
+    ],
+  },
+  {
+    category: "Data Analysis & Visualization",
+    icon: FaChartBar,
+    skills: [
+      { name: "Pandas", level: 95, icon: SiPandas },
+      { name: "NumPy", level: 95, icon: SiNumpy },
+      { name: "Matplotlib", level: 90, icon: FaChartBar },
+      { name: "Seaborn", level: 90, icon: FaChartBar },
+      { name: "Power BI", level: 82, icon: FaChartBar },
+    ],
+  },
+  {
+    category: "Backend & Database",
+    icon: FaDatabase,
+    skills: [
+      { name: "Flask", level: 90, icon: SiFlask },
+      { name: "FastAPI", level: 88, icon: SiFlask },
+      { name: "PostgreSQL", level: 85, icon: SiPostgresql },
+      { name: "Vector DB", level: 85, icon: FaDatabase },
+      { name: "Pinecone", level: 82, icon: FaDatabase },
     ],
   },
 ];
@@ -97,7 +88,6 @@ const Expertise = () => {
     >
       {/* Subtle background patterns */}
       <Box position="absolute" top="0" left="0" right="0" bottom="0" zIndex={0}>
-        {/* Circuit board pattern */}
         <Box
           position="absolute"
           top="0"
@@ -108,7 +98,6 @@ const Expertise = () => {
           backgroundImage="linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)"
           backgroundSize="40px 40px"
         />
-        {/* Dots at intersections */}
         <Box
           position="absolute"
           top="0"
@@ -119,7 +108,6 @@ const Expertise = () => {
           backgroundImage="radial-gradient(circle at 40px 40px, rgba(255, 255, 255, 0.4) 1px, transparent 0)"
           backgroundSize="40px 40px"
         />
-        {/* Gradient overlay */}
         <Box
           position="absolute"
           top="30%"
@@ -154,7 +142,7 @@ const Expertise = () => {
               fontSize={{ base: "md", md: "lg" }}
               maxW="2xl"
             >
-              Skills and technologies I work with
+              Skills and technologies I work with. Proficiency levels are calculated based on depth of project implementation, theoretical understanding, and continuous hands-on application in real-world scenarios.
             </Text>
           </VStack>
         </motion.div>
@@ -201,37 +189,33 @@ const Expertise = () => {
                 {/* Skills List */}
                 <VStack align="stretch" spacing={6}>
                   {category.skills.map((skill, skillIndex) => {
-                    // Colorful progress bars - highlight Java, Python, and ML skills
-                    let barColor = "#ffffff"; // default white
+                    let barColor = "#ffffff";
                     let barGradient = "linear(to-r, #ffffff, #e5e5e5)";
 
-                    // Special colors for key skills
-                    if (skill.name === "Java") {
-                      barColor = "#ed8b00"; // Java orange
-                      barGradient = "linear(to-r, #ed8b00, #f8981d)";
-                    } else if (skill.name === "Python") {
-                      barColor = "#3776ab"; // Python blue
+                    if (skill.name === "Python") {
+                      barColor = "#3776ab";
                       barGradient = "linear(to-r, #3776ab, #4b8bbe)";
                     } else if (
-                      skill.name === "Machine Learning" ||
-                      skill.name.includes("ML") ||
+                      skill.name.includes("scikit") ||
+                      skill.name.includes("Scikit") ||
+                      skill.name === "XGBoost" ||
                       skill.name === "Hugging Face" ||
-                      skill.name === "scikit-learn" ||
-                      skill.name === "PyTorch"
+                      skill.name === "PyTorch" ||
+                      skill.name === "TensorFlow"
                     ) {
-                      barColor = "#ff6b6b"; // ML red/pink
+                      barColor = "#ff6b6b";
                       barGradient = "linear(to-r, #ff6b6b, #ee5a6f)";
                     } else if (skill.level >= 90) {
-                      barColor = "#4ecdc4"; // High skill - teal
+                      barColor = "#4ecdc4";
                       barGradient = "linear(to-r, #4ecdc4, #44a08d)";
                     } else if (skill.level >= 85) {
-                      barColor = "#95e1d3"; // Very good - light teal
+                      barColor = "#95e1d3";
                       barGradient = "linear(to-r, #95e1d3, #7dd3c0)";
                     } else if (skill.level >= 75) {
-                      barColor = "#a8e6cf"; // Good - mint
+                      barColor = "#a8e6cf";
                       barGradient = "linear(to-r, #a8e6cf, #88d8a3)";
                     } else {
-                      barColor = "#d4d4d4"; // Lower - gray
+                      barColor = "#d4d4d4";
                       barGradient = "linear(to-r, #d4d4d4, #a3a3a3)";
                     }
 

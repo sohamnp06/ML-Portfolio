@@ -1,122 +1,106 @@
 import { Box, Container, Heading, Text, Tag, Button, VStack, HStack, Link, SimpleGrid, Badge } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaTasks, FaMobile, FaServer, FaHome, FaBrain, FaArrowRight, FaJava } from 'react-icons/fa';
-import { SiReact, SiAndroid, SiC, SiHtml5, SiCss3, SiJavascript, SiPython, SiFastapi } from 'react-icons/si';
+import { FaGithub, FaBrain, FaShieldAlt, FaChartLine, FaRobot, FaShoppingCart, FaUserGraduate } from 'react-icons/fa';
 
 const MotionBox = motion(Box);
 
 const projects = [
   {
-    title: "Insurance Smart Policy Advisor",
-    description: "An intelligent AI-powered system that provides personalized insurance policy recommendations based on user profiles, risk assessments, and comprehensive policy analysis. Helps users make informed decisions about their insurance coverage needs through advanced machine learning algorithms and intuitive interface.",
-    technologies: ["Python", "Machine Learning", "FastAPI", "React", "scikit-learn", "Streamlit", "Natural Language Processing"],
-    icons: [SiPython, FaBrain, SiFastapi],
-    category: "Machine Learning & AI",
+    title: "Academic-Agent",
+    description: "AI-powered academic assistant that retrieves knowledge from PDFs using FAISS (RAG pipeline), tracks student mastery, detects misconceptions, and generates adaptive explanations. Includes a teacher dashboard for students at risk and learning insights with academic integrity checks.",
+    technologies: ["PyTorch", "SentenceTransformers", "FAISS", "Transformers", "Flask"],
+    category: "Generative AI + RAG",
+    categoryIcon: FaRobot,
+    links: {
+      github: "https://github.com/sohamnp06/Academic-Agent",
+    },
+    highlights: [
+      "RAG pipeline with FAISS for PDF knowledge retrieval",
+      "Adaptive explanation generation based on student mastery",
+      "Teacher dashboard with at-risk student detection",
+      "Closed-loop learning with feedback tracking and integrity checks"
+    ]
+  },
+  {
+    title: "DeepCV-Analyzer",
+    description: "AI-powered resume/CV analysis system that extracts and analyzes resume data from PDF/Image formats. Performs skill extraction, feature parsing, and can be extended to resume screening and ranking. Combines Computer Vision and NLP techniques for comprehensive analysis.",
+    technologies: ["OpenCV", "spaCy", "Transformers", "Python", "NLP"],
+    category: "AI + Computer Vision",
     categoryIcon: FaBrain,
     links: {
-      github: "https://github.com/Saugat1017/Insurance_Smart_Policy_Advisor",
-      demo: "https://github.com/Saugat1017/Insurance_Smart_Policy_Advisor"
+      github: "https://github.com/sohamnp06/DeepCV-Analyzer",
     },
     highlights: [
-      "AI-driven policy recommendations tailored to individual risk profiles and needs",
-      "Advanced machine learning models for risk assessment and policy matching",
-      "Intuitive user interface with interactive policy comparison and visualization",
-      "Production-ready API architecture with comprehensive documentation"
+      "Resume data extraction from PDF and image formats",
+      "Skill extraction and feature parsing with NLP",
+      "Extensible to resume screening and ranking",
+      "Combines Computer Vision + NLP for analysis"
     ]
   },
   {
-    title: "Insurance Early Claim Risk Prediction System",
-    description: "A machine learning system that predicts claim severity (Low/Medium/High) at the moment a claim is filed, helping insurance companies prioritize resources and identify high-risk claims early. Uses only information available at claim filing time with no data leakage.",
-    technologies: ["Python", "FastAPI", "Streamlit", "Machine Learning", "Logistic Regression", "scikit-learn"],
-    icons: [SiPython, SiFastapi, FaBrain],
-    category: "Machine Learning",
-    categoryIcon: FaBrain,
+    title: "Gmail Threat Email Dashboard",
+    description: "Cybersecurity + NLP dashboard that connects to Gmail API to read emails in real-time, displays them as threat-monitoring cards, and identifies suspicious/phishing-like emails. Acts as a mini SOC (Security Operations Center) dashboard with threat classification logic.",
+    technologies: ["Python", "Gmail API", "NLP", "Dashboard UI"],
+    category: "Cybersecurity + NLP",
+    categoryIcon: FaShieldAlt,
     links: {
-      github: "https://github.com/Saugat1017/Insurance_early_claim_risk_Prediction_System",
-      demo: "https://github.com/Saugat1017/Insurance_early_claim_risk_Prediction_System"
+      github: "https://github.com/sohamnp06/HopesHackathon3.0",
     },
     highlights: [
-      "Predicts claim severity using only intake information (premium, age, policy tenure, family size, insurance type)",
-      "Decoupled architecture: FastAPI backend with ML model, Streamlit frontend",
-      "Business decision logic separated from ML training for explainability",
-      "Production-ready design with validated model and clean API endpoints"
+      "Real-time Gmail API integration for inbox monitoring",
+      "Threat classification logic for phishing detection",
+      "Interactive threat-monitoring card display",
+      "Mini SOC dashboard with email parsing"
     ]
   },
   {
-    title: "MavThread - University Discussion Platform",
-    description: "Built a full-stack (Python) university discussion platform for 200+ simulated users with anonymous threaded conversations, secure JWT authentication, and a point tracking system. Handled 5K+ API calls during load testing with zero data collisions using UUID-based mapping.",
-    technologies: ["Java", "React", "Spring Boot", "MySQL", "JWT", "AWS RDS", "SLF4J"],
-    icons: [FaJava, SiReact],
-    category: "Full Stack (Python)",
-    categoryIcon: FaServer,
-    period: "Jun 2025 – Present",
+    title: "Credit Risk Assessment System",
+    description: "FinTech + Explainable AI system that predicts loan default risk using XGBoost classification. Provides explainability using SHAP with feature-level impact for each prediction. Includes dashboard and API for real-time predictions with data preprocessing and threshold tuning.",
+    technologies: ["Python", "Flask", "XGBoost", "SHAP", "PostgreSQL"],
+    category: "FinTech + Explainable AI",
+    categoryIcon: FaChartLine,
     links: {
-      github: "https://github.com/Saugat1017/MavThread",
-      demo: "https://github.com/Saugat1017/MavThread"
+      github: "https://github.com/sohamnp06/Credit-Risk-Assessment-System",
     },
     highlights: [
-      "Scalable Spring Boot + MySQL (AWS RDS) backend with JPA",
-      "Zero data collisions with UUID-based mapping",
-      "React-based UI with SLF4J logging, reducing error resolution time by 40%",
-      "Handled 5K+ API calls during load testing"
+      "XGBoost-based loan default risk prediction",
+      "SHAP-based explainability with feature-level impact",
+      "Real-time prediction API with Flask backend",
+      "Data preprocessing, feature engineering & threshold tuning"
     ]
   },
   {
-    title: "Mortgage Website - Volunteer Project",
-    description: "A modern, responsive mortgage website built as a volunteer project. Features interactive mortgage calculator, loan program information, and professional design with smooth animations. Fully responsive design that works seamlessly across desktop, tablet, and mobile devices.",
-    technologies: ["HTML5", "CSS3", "JavaScript", "Font Awesome", "Google Fonts"],
-    icons: [SiHtml5, SiCss3, SiJavascript],
-    category: "Web Development",
-    categoryIcon: FaHome,
+    title: "RecoCartX - Recommendation System",
+    description: "E-Commerce recommendation system that generates personalized product recommendations using a hybrid approach combining clustering and similarity. Considers user history and current cart to improve user engagement and sales with full-stack integration.",
+    technologies: ["Python", "Flask", "PostgreSQL", "Scikit-learn", "React"],
+    category: "E-Commerce + ML",
+    categoryIcon: FaShoppingCart,
     links: {
-      github: "https://github.com/Saugat1017/MortgageWebsite-Volunteer-Project",
-      demo: "https://saugat1017.github.io/MortgageWebsite-Volunteer-Project"
+      github: "https://github.com/sohamnp06/RecoCartX",
     },
     highlights: [
-      "Modern, responsive design with gradient backgrounds and smooth animations",
-      "Interactive mortgage calculator with real-time payment calculations",
-      "Professional UI with fixed navigation, mobile menu, and form validation",
-      "Built as volunteer work to support company's digital presence"
+      "KMeans-based customer segmentation",
+      "Hybrid recommendation (clustering + similarity)",
+      "Cart & purchase-based personalized suggestions",
+      "Full-stack integration with React frontend"
     ]
   },
   {
-    title: "Fitness Tracker App - Android Application",
-    description: "Developed a comprehensive Android fitness tracker in Java with GPS integration and sensor-based step counting. Enabled accurate monitoring across 4+ activity types, supporting 1,000+ simulated workout records during testing with advanced analytics.",
-    technologies: ["Java", "Android SDK", "MySQL", "Google Play Services", "Material Design 3", "MPAndroidChart"],
-    icons: [FaJava, SiAndroid],
-    category: "Mobile Development",
-    categoryIcon: FaMobile,
-    period: "Aug 2024 – Dec 2024",
+    title: "Student Performance Indicator",
+    description: "Education analytics + ML system that predicts student performance and outcomes. Identifies at-risk students using ML models and supports data-driven academic insights with robust data preprocessing, feature engineering, and model evaluation.",
+    technologies: ["Python", "Scikit-learn", "Pandas", "NumPy"],
+    category: "Education Analytics + ML",
+    categoryIcon: FaUserGraduate,
     links: {
-      github: "https://github.com/Saugat1017",
-      demo: "https://github.com/Saugat1017"
+      github: "https://github.com/sohamnp06/Student-Performance-Indicator",
     },
     highlights: [
-      "GPS integration and sensor-based step counting",
-      "Advanced analytics with weekly/daily progress visualization",
-      "Increased user engagement by 35% in trials",
-      "Normalized SQLite schema with dark/light mode support"
+      "ML-based student performance prediction",
+      "At-risk student identification",
+      "Data preprocessing and feature engineering pipeline",
+      "Model training, evaluation & performance analytics"
     ]
   },
-  {
-    title: "Farm Data Management System",
-    description: "Developed a C-based trading system for farmers and merchants with secure registration, product listing, and request features. Supported 3+ product categories and handled 1,000+ simulated records with file-based data persistence.",
-    technologies: ["C", "File I/O", "CSV", "Console Interface"],
-    icons: [SiC],
-    category: "Desktop Application",
-    categoryIcon: FaTasks,
-    period: "Aug 2022 – Dec 2022",
-    links: {
-      github: "https://github.com/Saugat1017/Trading-Program-for-Farmers-and-Merchants",
-      demo: "https://github.com/Saugat1017/Trading-Program-for-Farmers-and-Merchants"
-    },
-    highlights: [
-      "File-based data persistence using structured CSV and .dat files",
-      "Secure, user-friendly console interface with input validation",
-      "Password protection and dynamic menus",
-      "Improved task completion by 40%"
-    ]
-  }
 ];
 
 const Projects = () => {
@@ -138,7 +122,6 @@ const Projects = () => {
         bottom="0"
         zIndex={0}
       >
-        {/* Dot pattern */}
         <Box
           position="absolute"
           top="0"
@@ -149,7 +132,6 @@ const Projects = () => {
           backgroundImage="radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.5) 1px, transparent 0)"
           backgroundSize="50px 50px"
         />
-        {/* Hexagon pattern (approximated with dots) */}
         <Box
           position="absolute"
           top="0"
@@ -160,7 +142,6 @@ const Projects = () => {
           backgroundImage="radial-gradient(circle at 25px 25px, rgba(255, 255, 255, 0.3) 2px, transparent 0), radial-gradient(circle at 75px 75px, rgba(255, 255, 255, 0.3) 2px, transparent 0)"
           backgroundSize="100px 100px"
         />
-        {/* Subtle gradient */}
         <Box
           position="absolute"
           top="20%"
@@ -196,7 +177,7 @@ const Projects = () => {
               fontSize={{ base: "md", md: "lg" }}
               maxW="2xl"
             >
-              Showcasing my best work across various technologies and domains
+              Showcasing my best work in Machine Learning, AI & Data Science
             </Text>
           </VStack>
         </motion.div>
@@ -257,11 +238,6 @@ const Projects = () => {
                     >
                       {project.category}
                     </Badge>
-                    {project.period && (
-                      <Text color="gray.500" fontSize="xs" fontWeight="600">
-                        {project.period}
-                      </Text>
-                    )}
                   </HStack>
 
                   {/* Title */}
@@ -332,9 +308,9 @@ const Projects = () => {
                     </HStack>
                   </Box>
 
-                  {/* Action Buttons */}
+                  {/* Action Button - Only View Code */}
                   <HStack spacing={4} pt={2}>
-                    <Link href={project.links.github} isExternal flex="1">
+                    <Link href={project.links.github} isExternal w="100%">
                       <Button
                         leftIcon={<FaGithub />}
                         w="100%"
@@ -354,26 +330,6 @@ const Projects = () => {
                         transition="all 0.3s ease"
                       >
                         View Code
-                      </Button>
-                    </Link>
-                    <Link href={project.links.demo} isExternal flex="1">
-                      <Button
-                        rightIcon={<FaArrowRight />}
-                        w="100%"
-                        bgGradient="linear(to-r, #ffffff, #e5e5e5)"
-                        color="#000000"
-                        borderRadius="xl"
-                        py={6}
-                        fontSize="sm"
-                        fontWeight="600"
-                        _hover={{
-                          bgGradient: "linear(to-r, #e5e5e5, #d4d4d4)",
-                          transform: "translateY(-2px)",
-                          boxShadow: "0 10px 25px rgba(255, 255, 255, 0.3)",
-                        }}
-                        transition="all 0.3s ease"
-                      >
-                        Live Demo
                       </Button>
                     </Link>
                   </HStack>
@@ -403,7 +359,7 @@ const Projects = () => {
               >
                 Want to see more of my work? Check out my GitHub profile for additional projects and contributions.
               </Text>
-              <Link href="https://github.com/Saugat1017" isExternal>
+              <Link href="https://github.com/sohamnp06" isExternal>
                 <Button
                   leftIcon={<FaGithub />}
                   size="lg"

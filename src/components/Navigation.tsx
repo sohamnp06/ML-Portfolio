@@ -8,9 +8,8 @@ const Navigation: React.FC = () => {
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Education', href: '#journey' },
+    { name: 'Tech Stack', href: '#expertise' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Skills', href: '#expertise' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -69,7 +68,7 @@ const Navigation: React.FC = () => {
             letterSpacing="0.1em"
             textTransform="uppercase"
           >
-            SB
+            SP
           </Link>
         </motion.div>
 

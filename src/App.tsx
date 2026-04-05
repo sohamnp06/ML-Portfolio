@@ -62,7 +62,6 @@ const pageTransition = {
 
 // Lazy load components
 const About = lazy(() => import('./components/About'));
-const Journey = lazy(() => import('./components/Journey'));
 const Projects = lazy(() => import('./components/Projects'));
 const GitHubShowcase = lazy(() => import('./components/GitHubShowcase'));
 const Expertise = lazy(() => import('./components/Expertise'));
@@ -82,10 +81,10 @@ function App() {
         <ScrollProgress />
         <Navigation />
         <Box as="main">
-          {/* Hero Section */}
+          {/* Hero Section - Info */}
           <Hero />
 
-          {/* About Section */}
+          {/* About Section - About Me / Summary + Tech Stack + Education */}
           <Box py={0} mt={0}>
             <motion.div
               variants={pageTransition}
@@ -99,8 +98,8 @@ function App() {
             </motion.div>
           </Box>
 
-          {/* Journey Section */}
-          <Box py={0} mt={0}>
+          {/* Expertise Section (Tech Stack) */}
+          <Box py={0} mt={0} id="expertise">
             <motion.div
               variants={pageTransition}
               initial="hidden"
@@ -108,12 +107,13 @@ function App() {
               viewport={{ once: true, margin: "-100px" }}
             >
               <Suspense fallback={<LoadingSpinner />}>
-                <Journey />
+                <Expertise />
               </Suspense>
             </motion.div>
           </Box>
 
-          <Box py={0} mt={0}>
+          {/* Projects Section */}
+          <Box py={0} mt={0} id="projects">
             <motion.div
               variants={pageTransition}
               initial="hidden"
@@ -126,6 +126,7 @@ function App() {
             </motion.div>
           </Box>
 
+          {/* GitHub Showcase */}
           <Box py={0} mt={0}>
             <motion.div
               variants={pageTransition}
@@ -139,19 +140,7 @@ function App() {
             </motion.div>
           </Box>
 
-          <Box py={0} mt={0}>
-            <motion.div
-              variants={pageTransition}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              <Suspense fallback={<LoadingSpinner />}>
-                <Expertise />
-              </Suspense>
-            </motion.div>
-          </Box>
-
+          {/* Contact Section */}
           <Box py={0} mt={0}>
             <motion.div
               variants={pageTransition}
@@ -173,4 +162,4 @@ function App() {
   );
 }
 
-export default App; 
+export default App;

@@ -9,7 +9,7 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
 const MotionBox = motion(Box);
@@ -19,10 +19,9 @@ const Hero = () => {
   const [displayText, setDisplayText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
   const roles = [
-    "Full Stack Developer",
     "Machine Learning Engineer",
-    "AI/ML Enthusiast",
-    "Software Engineer",
+    "AI Engineer",
+    "Data Science Enthusiast",
   ];
 
   const scrollToContact = () => {
@@ -135,7 +134,7 @@ const Hero = () => {
                 textTransform="uppercase"
                 fontFamily="'Space Grotesk', sans-serif"
               >
-                SAUGAT BHATTA
+                SOHAM PASHILKAR
               </Text>
             </MotionBox>
 
@@ -170,55 +169,71 @@ const Hero = () => {
               </Text>
             </MotionBox>
 
-            {/* Description */}
+            {/* Description - Systematic Restructuring */}
             <MotionBox
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              maxW="600px"
+              maxW="700px"
             >
-              <Text
-                fontSize={{ base: "sm", md: "md", lg: "lg" }}
-                color="gray.400"
-                lineHeight="1.8"
-                letterSpacing="0.02em"
-                textTransform="uppercase"
-                fontFamily="'Space Grotesk', sans-serif"
-                maxW="600px"
-              >
-                COMPUTER SCIENCE STUDENT AT UT ARLINGTON (GPA: 3.73) | BUILDING
-                SCALABLE FULL-STACK APPLICATIONS WITH JAVA(SPRING BOOT), PYTHON(FLASK, FASTAPI) & AWS | PASSIONATE ABOUT MACHINE LEARNING, AI/ML
-                BOOT, PYTHON & AWS 
-              </Text>
+              <VStack align="flex-start" spacing={3}>
+                <HStack spacing={3}>
+                  <Box w="8px" h="8px" borderRadius="full" bg="#ffffff" />
+                  <Text
+                    fontSize={{ base: "xs", md: "sm", lg: "md" }}
+                    color="#ffffff"
+                    fontWeight="600"
+                    letterSpacing="0.05em"
+                    textTransform="uppercase"
+                  >
+                    B.Tech in Computer Engineering
+                  </Text>
+                </HStack>
+                <HStack spacing={3} pl={5}>
+                  <Text
+                    fontSize={{ base: "xs", md: "sm", lg: "md" }}
+                    color="gray.400"
+                    fontWeight="500"
+                    letterSpacing="0.05em"
+                    textTransform="uppercase"
+                  >
+                    Vidyalankar Institute of Technology
+                  </Text>
+                </HStack>
+                <HStack spacing={3}>
+                  <Box w="8px" h="8px" borderRadius="full" bg="#ffffff" opacity={0.7} />
+                  <Text
+                    fontSize={{ base: "xs", md: "sm", lg: "md" }}
+                    color="gray.300"
+                    fontWeight="500"
+                    letterSpacing="0.05em"
+                    textTransform="uppercase"
+                  >
+                    Building end-to-end ML applications with Python, PyTorch & Transformers
+                  </Text>
+                </HStack>
+                <HStack spacing={3}>
+                  <Box w="8px" h="8px" borderRadius="full" bg="#ffffff" opacity={0.4} />
+                  <Text
+                    fontSize={{ base: "xs", md: "sm", lg: "md" }}
+                    color="gray.400"
+                    fontWeight="500"
+                    letterSpacing="0.05em"
+                    textTransform="uppercase"
+                  >
+                    Passionate about Data Science & AI
+                  </Text>
+                </HStack>
+              </VStack>
             </MotionBox>
 
-            {/* Call-to-Action Buttons */}
+            {/* Call-to-Action Button - Only Let's Talk */}
             <MotionBox
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
               <HStack spacing={4} flexWrap="wrap">
-                <Button
-                  bg="#ffffff"
-                  color="#000000"
-                  size="lg"
-                  px={8}
-                  py={6}
-                  borderRadius="md"
-                  fontSize="md"
-                  fontWeight="600"
-                  onClick={scrollToContact}
-                  cursor="pointer"
-                  _hover={{
-                    bg: "#e5e5e5",
-                    transform: "translateY(-2px)",
-                    boxShadow: "0 8px 20px rgba(255, 255, 255, 0.3)",
-                  }}
-                  transition="all 0.3s ease"
-                >
-                  Hire Me
-                </Button>
                 <Button
                   variant="outline"
                   borderColor="#ffffff"
@@ -254,7 +269,7 @@ const Hero = () => {
               <HStack spacing={4}>
                 <Box
                   as="a"
-                  href="https://github.com/Saugat1017"
+                  href="https://github.com/sohamnp06"
                   target="_blank"
                   rel="noopener noreferrer"
                   w="45px"
@@ -278,7 +293,7 @@ const Hero = () => {
                 </Box>
                 <Box
                   as="a"
-                  href="https://www.linkedin.com/in/saugat-bhatta-01a595217"
+                  href="https://www.linkedin.com/in/soham-pashilkar"
                   target="_blank"
                   rel="noopener noreferrer"
                   w="45px"
@@ -302,7 +317,7 @@ const Hero = () => {
                 </Box>
                 <Box
                   as="a"
-                  href="mailto:saugatbhatta1234@gmail.com"
+                  href="mailto:sohampashilkar84@gmail.com"
                   w="45px"
                   h="45px"
                   borderRadius="50%"
@@ -321,6 +336,28 @@ const Hero = () => {
                   transition="all 0.3s ease"
                 >
                   <Icon as={FaEnvelope} boxSize={5} />
+                </Box>
+                <Box
+                  as="a"
+                  href="tel:+918419943679"
+                  w="45px"
+                  h="45px"
+                  borderRadius="50%"
+                  border="2px solid"
+                  borderColor="#ffffff"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  color="#ffffff"
+                  _hover={{
+                    bg: "#ffffff",
+                    color: "#000000",
+                    transform: "translateY(-3px)",
+                    boxShadow: "0 5px 15px rgba(255, 255, 255, 0.3)",
+                  }}
+                  transition="all 0.3s ease"
+                >
+                  <Icon as={FaPhone} boxSize={5} />
                 </Box>
               </HStack>
             </MotionBox>
@@ -356,20 +393,22 @@ const Hero = () => {
               >
                 <Box
                   as="img"
-                  src={`/images/profile.jpg?t=${Date.now()}`}
-                  alt="Saugat Bhatta"
+                  src="/images/resume_pic.jpg"
+                  alt="Soham Nitin Pashilkar"
                   w="100%"
                   h="100%"
                   objectFit="cover"
                   style={{
-                    filter: "brightness(1.1) saturate(1.2)",
+                    filter: "brightness(1.05) contrast(1.05)",
                     display: "block",
                   }}
                   onError={(
                     e: React.SyntheticEvent<HTMLImageElement, Event>
                   ) => {
-                    e.currentTarget.src =
-                      "https://via.placeholder.com/500x500/1a1a1a/ffffff?text=SB";
+                    const target = e.currentTarget;
+                    if (target.src !== 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%231a1a1a"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="80" fill="white"%3ESP%3C/text%3E%3C/svg%3E') {
+                      target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%231a1a1a"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="80" fill="white"%3ESP%3C/text%3E%3C/svg%3E';
+                    }
                   }}
                 />
               </Box>
