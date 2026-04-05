@@ -6,7 +6,7 @@ import { FaRobot, FaTimes, FaPaperPlane } from 'react-icons/fa';
 const ChatBot = () => {
   const { isOpen, onToggle } = useDisclosure();
   const [messages, setMessages] = useState<Array<{ text: string; isBot: boolean }>>([
-    { text: "Hi! I'm Saugat's AI assistant. Ask me about his education, skills, projects, or experience!", isBot: true }
+    { text: "Hi! I'm Soham's AI assistant. Ask me about his education, tech stack, projects, or how to contact him!", isBot: true }
   ]);
   const [input, setInput] = useState('');
 
@@ -26,31 +26,27 @@ const ChatBot = () => {
   const getBotResponse = (question: string) => {
     const lowerQuestion = question.toLowerCase();
     
-    if (lowerQuestion.includes('education')) {
-      return "Saugat is currently pursuing a Bachelor of Science in Computer Science at the University of Texas at Arlington, expected to graduate in December 2026. He maintains a CGPA of 3.73 and has been recognized on the Honor Roll and Freshman Distinction Roll.";
+    if (lowerQuestion.includes('education') || lowerQuestion.includes('college') || lowerQuestion.includes('university')) {
+      return "Soham is pursuing a B.Tech in Computer Engineering at Vidyalankar Institute of Technology. He maintains an impressive CGPA of 9.3 and focuses on building end-to-end intelligent systems.";
     }
     
-    if (lowerQuestion.includes('skills') || lowerQuestion.includes('technologies')) {
-      return "Saugat is skilled in:\n• Languages: Java, Python, C/C++, SQL, JavaScript, HTML/CSS, Go, R\n• Frameworks: Spring Boot, React, Node.js, Flask, FastAPI, Android SDK\n• Data Tools: MySQL, SQLite, Apache Kafka, AWS Glue ETL\n• Cloud & Tools: AWS (RDS), Docker, Git, CI/CD Pipelines\n• ML/AI: Hugging Face, scikit-learn, PyTorch, NLP";
+    if (lowerQuestion.includes('skills') || lowerQuestion.includes('stack') || lowerQuestion.includes('technologies') || lowerQuestion.includes('expertise')) {
+      return "Soham's core tech stack includes:\n• Languages: Python, SQL, Java, C++\n• ML/AI: Scikit-learn, PyTorch, TensorFlow, Hugging Face, NLTK\n• Engineering: Pandas, NumPy, Vector DB (Pinecone)\n• Backend: Flask, FastAPI, PostgreSQL\n• Visualization: Matplotlib, Seaborn, Power BI";
     }
     
-    if (lowerQuestion.includes('projects')) {
-      return "Here are Saugat's notable projects:\n1. MavThread - Full-stack (Python) university discussion platform (React, Spring Boot, AWS RDS)\n2. Fitness Tracker App - Android app with GPS and analytics (Java, Android SDK)\n3. Farm Data Management System - C-based trading system\n4. Dallas AI - Emotional eating support platform with ML models (87% accuracy)\n5. OURCS@DFW Research - Transformer-based summarization research";
+    if (lowerQuestion.includes('projects') || lowerQuestion.includes('work')) {
+      return "Soham has developed several high-impact projects:\n1. Academic-Agent - LLM-based research assistant\n2. Medical-Diagnosis-System - Predictive healthcare analysis\n3. Credit-Risk-Model - Explainable AI for banking\n4. Recommendation-System - Hybrid movie filtering\n5. Resume-Screener - NLP-powered ATS scanner\n6. Student-Indicator - Academic trajectory analytics";
     }
     
-    if (lowerQuestion.includes('experience') || lowerQuestion.includes('work')) {
-      return "Saugat's experience includes:\n• Dallas AI Summer Program (Jun 2025 - Aug 2025) - Built full-stack (Python) AI platform\n• OURCS@DFW Research Assistant at UT Arlington (Feb 2025 - Mar 2025)\n• Computer Lab Assistant at SUNY Oswego (Aug 2022 - Dec 2022) - 92% resolution rate";
+    if (lowerQuestion.includes('contact') || lowerQuestion.includes('hire') || lowerQuestion.includes('email') || lowerQuestion.includes('linkedin') || lowerQuestion.includes('github') || lowerQuestion.includes('phone')) {
+      return "You can reach Soham here:\n• Email: sohampashilkar84@gmail.com\n• LinkedIn: linkedin.com/in/soham-pashilkar\n• GitHub: github.com/sohamnp06\n• Phone: +91 8419943679\n• Location: Dombivli, Thane";
     }
 
-    if (lowerQuestion.includes('certificates') || lowerQuestion.includes('certifications')) {
-      return "Saugat has earned:\n• CodePath: Intermediate Technical Interview Prep\n• Amazon: Application Development Certificate\n• Paycom: Technology Summer Engagement Program\n• Volunteer: IT Systems Monitoring – ASNEngr Program (NYC)";
+    if (lowerQuestion.includes('who') || lowerQuestion.includes('about')) {
+      return "Soham Pashilkar is a Machine Learning Engineer and AI enthusiast passionate about solving real-world problems combining data, algorithms, and scalable system design.";
     }
 
-    if (lowerQuestion.includes('contact') || lowerQuestion.includes('hire') || lowerQuestion.includes('email') || lowerQuestion.includes('linkedin') || lowerQuestion.includes('github')) {
-      return "Get in touch with Saugat:\n• Email: saugatbhatta1234@gmail.com\n• GitHub: github.com/Saugat1017\n• LinkedIn: linkedin.com/in/saugat-bhatta-01a595217\n• Website: saugatdev.com\n• Location: Irving, Texas";
-    }
-
-    return "I can tell you about Saugat's education, skills, projects, experience, or certifications. What would you like to know?";
+    return "I can tell you about Soham's education, tech stack, projects, or contact information. What would you like to know?";
   };
 
   return (
@@ -108,7 +104,7 @@ const ChatBot = () => {
                 justify="space-between" 
                 align="center"
               >
-                <Text fontWeight="bold">Chat with AI Assistant</Text>
+                <Text fontWeight="bold">Soham's AI Assistant</Text>
                 <IconButton
                   aria-label="Close"
                   icon={<FaTimes />}
