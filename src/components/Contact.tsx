@@ -145,7 +145,7 @@ const Contact = () => {
                     alignItems="center"
                     justifyContent="center"
                   >
-                    <Icon as={FaEnvelope} boxSize={5} color="white" />
+                    <Icon as={FaEnvelope} boxSize={5} color="#000000" />
                   </Circle>
                   <VStack align="flex-start" spacing={1}>
                     <Text color="gray.400" fontSize="sm" fontWeight="600" textTransform="uppercase" letterSpacing="wide">
@@ -193,7 +193,7 @@ const Contact = () => {
                     alignItems="center"
                     justifyContent="center"
                   >
-                    <Icon as={FaPhone} boxSize={5} color="white" />
+                    <Icon as={FaPhone} boxSize={5} color="#000000" transform="scaleX(-1)" />
                   </Circle>
                   <VStack align="flex-start" spacing={1}>
                     <Text color="gray.400" fontSize="sm" fontWeight="600" textTransform="uppercase" letterSpacing="wide">
@@ -241,7 +241,7 @@ const Contact = () => {
                     alignItems="center"
                     justifyContent="center"
                   >
-                    <Icon as={FaMapMarkerAlt} boxSize={5} color="white" />
+                    <Icon as={FaMapMarkerAlt} boxSize={5} color="#000000" />
                   </Circle>
                   <VStack align="flex-start" spacing={1}>
                     <Text color="gray.400" fontSize="sm" fontWeight="600" textTransform="uppercase" letterSpacing="wide">

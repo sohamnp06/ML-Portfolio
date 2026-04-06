@@ -357,7 +357,7 @@ const Hero = () => {
                   }}
                   transition="all 0.3s ease"
                 >
-                  <Icon as={FaPhone} boxSize={5} />
+                  <Icon as={FaPhone} boxSize={5} transform="scaleX(-1)" />
                 </Box>
               </HStack>
             </MotionBox>
