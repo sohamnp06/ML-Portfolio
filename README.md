@@ -25,10 +25,10 @@ Python · SQL · Java · C++
 Pandas · NumPy · Matplotlib · Seaborn · Power BI · Plotly · Jupyter
 
 ### Machine Learning & AI
-Scikit-learn · PyTorch · TensorFlow · Hugging Face · NLTK · spaCy · XGBoost
+Scikit-learn · TensorFlow · Hugging Face · NLTK · XGBoost
 
 ### Backend & Database
-Flask · FastAPI · PostgreSQL · FAISS · ChromaDB · Pinecone
+Flask · FastAPI · PostgreSQL · FAISS · Vector DB
 
 ---
 

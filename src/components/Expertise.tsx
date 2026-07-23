@@ -22,7 +22,6 @@ import {
 } from "react-icons/fa";
 import {
   SiScikitlearn,
-  SiPytorch,
   SiTensorflow,
   SiFlask,
   SiPostgresql,
@@ -45,7 +44,6 @@ const expertiseData = [
       { name: "SQL", icon: FaDatabase },
       { name: "Java", icon: FaCode },
       { name: "C++", icon: TbBrandCpp },
-      { name: "R", icon: FaCode },
     ],
   },
   {
@@ -66,11 +64,9 @@ const expertiseData = [
     icon: FaBrain,
     skills: [
       { name: "Scikit-learn", icon: SiScikitlearn },
-      { name: "PyTorch", icon: SiPytorch },
       { name: "TensorFlow", icon: SiTensorflow },
       { name: "Hugging Face", icon: FaBrain },
       { name: "NLTK", icon: FaBrain },
-      { name: "spaCy", icon: FaBrain },
       { name: "XGBoost", icon: FaBrain },
     ],
   },
@@ -82,8 +78,7 @@ const expertiseData = [
       { name: "FastAPI", icon: SiFastapi },
       { name: "PostgreSQL", icon: SiPostgresql },
       { name: "FAISS", icon: FaDatabase },
-      { name: "ChromaDB", icon: FaDatabase },
-      { name: "Pinecone", icon: FaDatabase },
+      { name: "Vector DB", icon: FaDatabase },
     ],
   },
 ];
