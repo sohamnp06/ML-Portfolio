@@ -8,6 +8,8 @@ import {
   VStack,
   HStack,
   Circle,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import {
@@ -16,6 +18,7 @@ import {
   FaBrain,
   FaCode,
   FaChartBar,
+  FaServer,
 } from "react-icons/fa";
 import {
   SiScikitlearn,
@@ -25,7 +28,11 @@ import {
   SiPostgresql,
   SiPandas,
   SiNumpy,
+  SiJupyter,
+  SiFastapi,
 } from "react-icons/si";
+import { TbBrandCpp } from "react-icons/tb";
+
 
 const MotionBox = motion(Box);
 
@@ -34,44 +41,49 @@ const expertiseData = [
     category: "Programming Languages",
     icon: FaCode,
     skills: [
-      { name: "Python", level: 95, icon: FaPython },
-      { name: "SQL", level: 90, icon: FaDatabase },
-      { name: "Java", level: 80, icon: FaCode },
-      { name: "C++", level: 75, icon: FaCode },
-    ],
-  },
-  {
-    category: "Machine Learning & AI",
-    icon: FaBrain,
-    skills: [
-      { name: "Scikit-learn", level: 92, icon: SiScikitlearn },
-      { name: "PyTorch", level: 88, icon: SiPytorch },
-      { name: "TensorFlow", level: 85, icon: SiTensorflow },
-      { name: "Hugging Face", level: 85, icon: FaBrain },
-      { name: "NLTK", level: 85, icon: FaBrain },
-      { name: "Kaggle", level: 80, icon: FaBrain },
+      { name: "Python", icon: FaPython },
+      { name: "SQL", icon: FaDatabase },
+      { name: "Java", icon: FaCode },
+      { name: "C++", icon: TbBrandCpp },
+      { name: "R", icon: FaCode },
     ],
   },
   {
     category: "Data Analysis & Visualization",
     icon: FaChartBar,
     skills: [
-      { name: "Pandas", level: 95, icon: SiPandas },
-      { name: "NumPy", level: 95, icon: SiNumpy },
-      { name: "Matplotlib", level: 90, icon: FaChartBar },
-      { name: "Seaborn", level: 90, icon: FaChartBar },
-      { name: "Power BI", level: 82, icon: FaChartBar },
+      { name: "Pandas", icon: SiPandas },
+      { name: "NumPy", icon: SiNumpy },
+      { name: "Matplotlib", icon: FaChartBar },
+      { name: "Seaborn", icon: FaChartBar },
+      { name: "Power BI", icon: FaChartBar },
+      { name: "Plotly", icon: FaChartBar },
+      { name: "Jupyter", icon: SiJupyter },
+    ],
+  },
+  {
+    category: "Machine Learning & AI",
+    icon: FaBrain,
+    skills: [
+      { name: "Scikit-learn", icon: SiScikitlearn },
+      { name: "PyTorch", icon: SiPytorch },
+      { name: "TensorFlow", icon: SiTensorflow },
+      { name: "Hugging Face", icon: FaBrain },
+      { name: "NLTK", icon: FaBrain },
+      { name: "spaCy", icon: FaBrain },
+      { name: "XGBoost", icon: FaBrain },
     ],
   },
   {
     category: "Backend & Database",
-    icon: FaDatabase,
+    icon: FaServer,
     skills: [
-      { name: "Flask", level: 90, icon: SiFlask },
-      { name: "FastAPI", level: 88, icon: SiFlask },
-      { name: "PostgreSQL", level: 85, icon: SiPostgresql },
-      { name: "Vector DB", level: 85, icon: FaDatabase },
-      { name: "Pinecone", level: 82, icon: FaDatabase },
+      { name: "Flask", icon: SiFlask },
+      { name: "FastAPI", icon: SiFastapi },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "FAISS", icon: FaDatabase },
+      { name: "ChromaDB", icon: FaDatabase },
+      { name: "Pinecone", icon: FaDatabase },
     ],
   },
 ];
@@ -142,7 +154,7 @@ const Expertise = () => {
               fontSize={{ base: "md", md: "lg" }}
               maxW="2xl"
             >
-              Skills and technologies I work with. Proficiency levels are calculated based on depth of project implementation, theoretical understanding, and continuous hands-on application in real-world scenarios.
+              Skills and technologies I work with across data science, machine learning, and AI engineering.
             </Text>
           </VStack>
         </motion.div>
@@ -179,87 +191,48 @@ const Expertise = () => {
                     bgGradient="linear(135deg, #ffffff, #e5e5e5)"
                     p={3}
                   >
-                    <Icon as={category.icon} boxSize={8} color="white" />
+                    <Icon as={category.icon} boxSize={8} color="black" />
                   </Circle>
                   <Heading size="lg" color="white" fontWeight="700">
                     {category.category}
                   </Heading>
                 </HStack>
 
-                {/* Skills List */}
-                <VStack align="stretch" spacing={6}>
-                  {category.skills.map((skill, skillIndex) => {
-                    let barColor = "#ffffff";
-                    let barGradient = "linear(to-r, #ffffff, #e5e5e5)";
-
-                    if (skill.name === "Python") {
-                      barColor = "#3776ab";
-                      barGradient = "linear(to-r, #3776ab, #4b8bbe)";
-                    } else if (
-                      skill.name.includes("scikit") ||
-                      skill.name.includes("Scikit") ||
-                      skill.name === "XGBoost" ||
-                      skill.name === "Hugging Face" ||
-                      skill.name === "PyTorch" ||
-                      skill.name === "TensorFlow"
-                    ) {
-                      barColor = "#ff6b6b";
-                      barGradient = "linear(to-r, #ff6b6b, #ee5a6f)";
-                    } else if (skill.level >= 90) {
-                      barColor = "#4ecdc4";
-                      barGradient = "linear(to-r, #4ecdc4, #44a08d)";
-                    } else if (skill.level >= 85) {
-                      barColor = "#95e1d3";
-                      barGradient = "linear(to-r, #95e1d3, #7dd3c0)";
-                    } else if (skill.level >= 75) {
-                      barColor = "#a8e6cf";
-                      barGradient = "linear(to-r, #a8e6cf, #88d8a3)";
-                    } else {
-                      barColor = "#d4d4d4";
-                      barGradient = "linear(to-r, #d4d4d4, #a3a3a3)";
-                    }
-
-                    return (
-                      <Box key={skillIndex}>
-                        <HStack justify="space-between" mb={3}>
-                          <HStack spacing={3}>
-                            {skill.icon && (
-                              <Icon as={skill.icon} boxSize={5} color="white" />
-                            )}
-                            <Text color="white" fontSize="md" fontWeight="600">
-                              {skill.name}
-                            </Text>
-                          </HStack>
-                          <Text color="gray.400" fontSize="sm" fontWeight="700">
-                            {skill.level}%
-                          </Text>
-                        </HStack>
-                        <Box
-                          w="100%"
-                          h="12px"
-                          bg="rgba(255, 255, 255, 0.05)"
-                          borderRadius="full"
-                          overflow="hidden"
-                          position="relative"
+                {/* Skills as icon + name chips */}
+                <Wrap spacing={3}>
+                  {category.skills.map((skill, skillIndex) => (
+                    <WrapItem key={skillIndex}>
+                      <HStack
+                        spacing={2}
+                        px={4}
+                        py={2}
+                        bg="rgba(255, 255, 255, 0.06)"
+                        border="1px solid"
+                        borderColor="rgba(255, 255, 255, 0.15)"
+                        borderRadius="lg"
+                        _hover={{
+                          bg: "rgba(255, 255, 255, 0.12)",
+                          borderColor: "rgba(255, 255, 255, 0.35)",
+                          transform: "translateY(-2px)",
+                        }}
+                        transition="all 0.25s ease"
+                        cursor="default"
+                      >
+                        {skill.icon && (
+                          <Icon as={skill.icon} boxSize={4} color="white" />
+                        )}
+                        <Text
+                          color="white"
+                          fontSize="sm"
+                          fontWeight="600"
+                          letterSpacing="0.03em"
                         >
-                          <MotionBox
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.level}%` }}
-                            transition={{
-                              duration: 1,
-                              delay: skillIndex * 0.1,
-                            }}
-                            viewport={{ once: true }}
-                            h="100%"
-                            bgGradient={barGradient}
-                            borderRadius="full"
-                            boxShadow={`0 0 15px ${barColor}80, 0 0 30px ${barColor}40`}
-                          />
-                        </Box>
-                      </Box>
-                    );
-                  })}
-                </VStack>
+                          {skill.name}
+                        </Text>
+                      </HStack>
+                    </WrapItem>
+                  ))}
+                </Wrap>
               </Box>
             </MotionBox>
           ))}

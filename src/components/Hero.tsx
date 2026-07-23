@@ -19,9 +19,9 @@ const Hero = () => {
   const [displayText, setDisplayText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
   const roles = [
-    "Machine Learning Engineer",
-    "AI Engineer",
-    "Data Science Enthusiast",
+    "Data Science",
+    "Machine Learning",
+    "AI Engineering",
   ];
 
   const scrollToContact = () => {

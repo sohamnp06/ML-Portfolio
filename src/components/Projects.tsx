@@ -1,107 +1,255 @@
 import { Box, Container, Heading, Text, Tag, Button, VStack, HStack, Link, SimpleGrid, Badge } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaBrain, FaShieldAlt, FaChartLine, FaRobot, FaShoppingCart, FaUserGraduate } from 'react-icons/fa';
+import { FaGithub, FaBrain, FaShieldAlt, FaChartLine, FaRobot, FaShoppingCart, FaTruck } from 'react-icons/fa';
 
 const MotionBox = motion(Box);
 
-const projects = [
-  {
-    title: "Academic-Agent",
-    description: "AI-powered academic assistant that retrieves knowledge from PDFs using FAISS (RAG pipeline), tracks student mastery, detects misconceptions, and generates adaptive explanations. Includes a teacher dashboard for students at risk and learning insights with academic integrity checks.",
-    technologies: ["PyTorch", "SentenceTransformers", "FAISS", "Transformers", "Flask"],
-    category: "Generative AI + RAG",
-    categoryIcon: FaRobot,
-    links: {
-      github: "https://github.com/sohamnp06/Academic-Agent",
-    },
-    highlights: [
-      "RAG pipeline with FAISS for PDF knowledge retrieval",
-      "Adaptive explanation generation based on student mastery",
-      "Teacher dashboard with at-risk student detection",
-      "Closed-loop learning with feedback tracking and integrity checks"
-    ]
-  },
-  {
-    title: "DeepCV-Analyzer",
-    description: "AI-powered resume/CV analysis system that extracts and analyzes resume data from PDF/Image formats. Performs skill extraction, feature parsing, and can be extended to resume screening and ranking. Combines Computer Vision and NLP techniques for comprehensive analysis.",
-    technologies: ["OpenCV", "spaCy", "Transformers", "Python", "NLP"],
-    category: "AI + Computer Vision",
-    categoryIcon: FaBrain,
-    links: {
-      github: "https://github.com/sohamnp06/DeepCV-Analyzer",
-    },
-    highlights: [
-      "Resume data extraction from PDF and image formats",
-      "Skill extraction and feature parsing with NLP",
-      "Extensible to resume screening and ranking",
-      "Combines Computer Vision + NLP for analysis"
-    ]
-  },
-  {
-    title: "Gmail Threat Email Dashboard",
-    description: "Cybersecurity + NLP dashboard that connects to Gmail API to read emails in real-time, displays them as threat-monitoring cards, and identifies suspicious/phishing-like emails. Acts as a mini SOC (Security Operations Center) dashboard with threat classification logic.",
-    technologies: ["Python", "Gmail API", "NLP", "Dashboard UI"],
-    category: "Cybersecurity + NLP",
-    categoryIcon: FaShieldAlt,
-    links: {
-      github: "https://github.com/sohamnp06/HopesHackathon3.0",
-    },
-    highlights: [
-      "Real-time Gmail API integration for inbox monitoring",
-      "Threat classification logic for phishing detection",
-      "Interactive threat-monitoring card display",
-      "Mini SOC dashboard with email parsing"
-    ]
-  },
+// LEFT COLUMN — Data Analysis Projects
+const dataAnalysisProjects = [
   {
     title: "Credit Risk Assessment System",
-    description: "FinTech + Explainable AI system that predicts loan default risk using XGBoost classification. Provides explainability using SHAP with feature-level impact for each prediction. Includes dashboard and API for real-time predictions with data preprocessing and threshold tuning.",
-    technologies: ["Python", "Flask", "XGBoost", "SHAP", "PostgreSQL"],
+    description: "AI-powered dual-portal loan platform analyzing 255,000+ historical applications across a ₹32.58B portfolio. XGBoost classification with SHAP explainability surfaces hidden risk patterns — Poor credit applicants, high DTI borrowers, and co-signer combinations — that a naive approval workflow misses entirely.",
+    technologies: ["Python", "XGBoost", "SHAP", "Flask", "PostgreSQL", "React"],
     category: "FinTech + Explainable AI",
     categoryIcon: FaChartLine,
-    links: {
-      github: "https://github.com/sohamnp06/Credit-Risk-Assessment-System",
-    },
+    links: { github: "https://github.com/sohamnp06/Credit-Risk-Assessment-System" },
     highlights: [
-      "XGBoost-based loan default risk prediction",
-      "SHAP-based explainability with feature-level impact",
-      "Real-time prediction API with Flask backend",
-      "Data preprocessing, feature engineering & threshold tuning"
+      "Analyzed 255K+ loan applications across a ₹32.58B portfolio",
+      "XGBoost with class-weight tuning for imbalanced default detection",
+      "SHAP-based feature-level explainability for every prediction",
+      "Dual portal (Applicant + Bank Employee) with real-time risk scoring API",
     ]
   },
   {
-    title: "RecoCartX - Recommendation System",
-    description: "E-Commerce recommendation system that generates personalized product recommendations using a hybrid approach combining clustering and similarity. Considers user history and current cart to improve user engagement and sales with full-stack integration.",
-    technologies: ["Python", "Flask", "PostgreSQL", "Scikit-learn", "React"],
-    category: "E-Commerce + ML",
+    title: "Shoplytics AI",
+    description: "Enterprise-grade retail analytics engine that replaces fragmented Excel silos with a unified ETL + event-driven ingestion pipeline. A PostgreSQL data warehouse feeds a multi-page Power BI executive dashboard, reducing analytics latency from days to seconds and surfacing promotional discount leakage and fulfillment blindspots.",
+    technologies: ["Python", "Pandas", "PostgreSQL", "Flask", "Power BI", "SQLAlchemy"],
+    category: "Retail Analytics + ETL",
     categoryIcon: FaShoppingCart,
-    links: {
-      github: "https://github.com/sohamnp06/RecoCartX",
-    },
+    links: { github: "https://github.com/sohamnp06/Shoplytics-AI" },
     highlights: [
-      "KMeans-based customer segmentation",
-      "Hybrid recommendation (clustering + similarity)",
-      "Cart & purchase-based personalized suggestions",
-      "Full-stack integration with React frontend"
+      "Batch ETL + real-time Flask ingestion with symmetric validation engine",
+      "PostgreSQL warehouse with domain-level constraint enforcement",
+      "Executive Power BI dashboard tracking KPIs, profit leaks & fulfillment ops",
+      "Eliminates data drift across batch and transactional pipelines",
     ]
   },
   {
-    title: "Student Performance Indicator",
-    description: "Education analytics + ML system that predicts student performance and outcomes. Identifies at-risk students using ML models and supports data-driven academic insights with robust data preprocessing, feature engineering, and model evaluation.",
-    technologies: ["Python", "Scikit-learn", "Pandas", "NumPy"],
-    category: "Education Analytics + ML",
-    categoryIcon: FaUserGraduate,
-    links: {
-      github: "https://github.com/sohamnp06/Student-Performance-Indicator",
-    },
+    title: "Supply Chain Forecasting",
+    description: "End-to-end analytics lifecycle on 172,765 global e-commerce orders — from raw SQL extraction through EDA and Power BI BI reporting to ML delay prediction. Combines Python, SQL, and Scikit-learn to identify operational bottlenecks, quantify financial losses from logistics failures, and flag high-risk shipments before dispatch.",
+    technologies: ["Python", "Pandas", "PostgreSQL", "Scikit-learn", "Power BI", "SQL"],
+    category: "Supply Chain + ML Forecasting",
+    categoryIcon: FaTruck,
+    links: { github: "https://github.com/sohamnp06/Supply-Chain-Forecasting" },
     highlights: [
-      "ML-based student performance prediction",
-      "At-risk student identification",
-      "Data preprocessing and feature engineering pipeline",
-      "Model training, evaluation & performance analytics"
+      "Analyzed 172,765 global orders across shipping modes and regions",
+      "EDA-driven root cause analysis of shipment delays and financial impact",
+      "Random Forest classifier to flag high-risk shipments pre-dispatch",
+      "3-module Power BI dashboard for executive business intelligence",
     ]
   },
 ];
+
+// RIGHT COLUMN — Data Science Projects
+const dataScienceProjects = [
+  {
+    title: "Academic Agent",
+    description: "End-to-end RAG-based intelligent tutoring system that ingests faculty PDFs, performs semantic retrieval via FAISS + Sentence Transformers, and generates adaptive LLM responses. Models per-student topic mastery, detects conceptual misconceptions, identifies at-risk students, and enforces academic integrity through a closed-loop feedback mechanism.",
+    technologies: ["PyTorch", "FAISS", "SentenceTransformers", "Transformers", "Flask"],
+    category: "Generative AI + RAG",
+    categoryIcon: FaRobot,
+    links: { github: "https://github.com/sohamnp06/Academic-Agent" },
+    highlights: [
+      "RAG pipeline with FAISS for PDF knowledge retrieval",
+      "Adaptive explanation generation based on student mastery level",
+      "Teacher dashboard with at-risk student detection",
+      "Closed-loop learning with feedback tracking and integrity checks",
+    ]
+  },
+  {
+    title: "DeepCV Analyzer",
+    description: "AI-powered resume intelligence system that bridges candidates and job roles using Hugging Face semantic embeddings (all-MiniLM-L6-v2). Performs domain-specific skill gap analysis across Programming, Backend, Cloud, and Data Science categories, generates narrative intelligence reports, and is deployment-optimized for Render free tier with SHA-256 security and PostgreSQL persistence.",
+    technologies: ["Python", "Hugging Face", "NLP", "spaCy", "PostgreSQL", "Flask"],
+    category: "NLP + AI Resume Intelligence",
+    categoryIcon: FaBrain,
+    links: { github: "https://github.com/sohamnp06/DeepCV-Analyzer" },
+    highlights: [
+      "Cloud-powered semantic JD-resume matching via Hugging Face Inference API",
+      "Domain-specific skill gap analysis across 7 engineering categories",
+      "Narrative intelligence report with strengths, weaknesses & improvement steps",
+      "Lightweight deployment on Render free tier with SHA-256 security",
+    ]
+  },
+  {
+    title: "AegisAI — Gmail Threat Dashboard",
+    description: "Cybersecurity NLP dashboard (built at HopesHackathon 3.0) that connects to Gmail API via Google OAuth2, reads real-time inbox emails, and displays them as threat-monitoring cards. Auto-refreshes every 10 seconds, classifies suspicious and phishing-like emails, and acts as a mini SOC (Security Operations Center) for email threat intelligence.",
+    technologies: ["Next.js", "Gmail API", "NLP", "OAuth2", "Tailwind"],
+    category: "Cybersecurity + NLP",
+    categoryIcon: FaShieldAlt,
+    links: { github: "https://github.com/sohamnp06/HopesHackathon3.0" },
+    highlights: [
+      "Real-time Gmail API integration with Google OAuth2 refresh token flow",
+      "Threat classification logic for phishing and suspicious email detection",
+      "Dashboard auto-refreshes every 10 seconds with interactive email cards",
+      "Mini SOC dashboard built end-to-end at HopesHackathon 3.0",
+    ]
+  },
+];
+
+const ProjectCard = ({ project, index }: { project: typeof dataAnalysisProjects[0]; index: number }) => (
+  <MotionBox
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay: index * 0.1 }}
+    viewport={{ once: true }}
+    h="100%"
+  >
+    <Box
+      position="relative"
+      borderRadius="2xl"
+      bg="rgba(20, 20, 20, 0.8)"
+      backdropFilter="blur(20px)"
+      border="1px solid"
+      borderColor="rgba(255, 255, 255, 0.2)"
+      p={8}
+      h="100%"
+      display="flex"
+      flexDirection="column"
+      _hover={{
+        borderColor: "rgba(255, 255, 255, 0.4)",
+        boxShadow: "0 25px 50px rgba(255, 255, 255, 0.1)",
+        transform: "translateY(-8px)",
+      }}
+      transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
+    >
+      {/* Gradient Border Top */}
+      <Box
+        position="absolute"
+        top={0}
+        left={0}
+        right={0}
+        h="3px"
+        bgGradient="linear(to-r, #ffffff, #e5e5e5, #d4d4d4, #a3a3a3)"
+        borderRadius="2xl 2xl 0 0"
+      />
+
+      <VStack align="stretch" spacing={6} flex="1">
+        {/* Header */}
+        <HStack justify="space-between" align="flex-start" flexWrap="wrap" gap={4}>
+          <Badge
+            px={4}
+            py={2}
+            borderRadius="full"
+            bg="rgba(255, 255, 255, 0.1)"
+            color="#e5e5e5"
+            border="1px solid"
+            borderColor="rgba(255, 255, 255, 0.2)"
+            fontSize="xs"
+            fontWeight="700"
+            textTransform="uppercase"
+            letterSpacing="wide"
+          >
+            {project.category}
+          </Badge>
+        </HStack>
+
+        {/* Title */}
+        <Heading
+          fontSize={{ base: "xl", md: "2xl" }}
+          fontWeight="700"
+          color="white"
+          lineHeight="1.3"
+        >
+          {project.title}
+        </Heading>
+
+        {/* Description */}
+        <Text
+          color="gray.300"
+          lineHeight="1.8"
+          fontSize={{ base: "sm", md: "md" }}
+        >
+          {project.description}
+        </Text>
+
+        {/* Highlights */}
+        <Box flex="1">
+          <VStack align="stretch" spacing={3}>
+            {project.highlights.map((highlight, i) => (
+              <HStack key={i} spacing={3} align="flex-start">
+                <Box
+                  w="6px"
+                  h="6px"
+                  borderRadius="full"
+                  bg="#ffffff"
+                  mt={2}
+                  flexShrink={0}
+                />
+                <Text
+                  color="gray.300"
+                  fontSize={{ base: "xs", md: "sm" }}
+                  lineHeight="1.7"
+                  flex={1}
+                >
+                  {highlight}
+                </Text>
+              </HStack>
+            ))}
+          </VStack>
+        </Box>
+
+        {/* Technologies */}
+        <Box>
+          <HStack spacing={2} flexWrap="wrap">
+            {project.technologies.map((tech, i) => (
+              <Tag
+                key={i}
+                size="sm"
+                bg="rgba(255, 255, 255, 0.1)"
+                color="#e5e5e5"
+                border="1px solid"
+                borderColor="rgba(255, 255, 255, 0.2)"
+                borderRadius="md"
+                px={3}
+                py={1}
+                fontSize="xs"
+                fontWeight="600"
+              >
+                {tech}
+              </Tag>
+            ))}
+          </HStack>
+        </Box>
+
+        {/* Action Button */}
+        <HStack spacing={4} pt={2}>
+          <Link href={project.links.github} isExternal w="100%">
+            <Button
+              leftIcon={<FaGithub />}
+              w="100%"
+              variant="outline"
+              borderColor="rgba(255, 255, 255, 0.3)"
+              color="#ffffff"
+              bg="transparent"
+              borderRadius="xl"
+              py={6}
+              fontSize="sm"
+              fontWeight="600"
+              _hover={{
+                bg: "rgba(59, 130, 246, 0.15)",
+                borderColor: "#ffffff",
+                color: "#ffffff",
+              }}
+              transition="all 0.3s ease"
+            >
+              View Code
+            </Button>
+          </Link>
+        </HStack>
+      </VStack>
+    </Box>
+  </MotionBox>
+);
 
 const Projects = () => {
   return (
@@ -177,187 +325,97 @@ const Projects = () => {
               fontSize={{ base: "md", md: "lg" }}
               maxW="2xl"
             >
-              Showcasing my best work in Machine Learning, AI & Data Science
+              Showcasing my best work in Data Analysis, Data Science & Machine Learning
             </Text>
           </VStack>
         </motion.div>
 
-        <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={8}>
-          {projects.map((project, index) => (
-            <MotionBox
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
+        {/* Column headers */}
+        <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={8} mb={6}>
+          <MotionBox
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <HStack spacing={3} mb={4}>
               <Box
-                position="relative"
-                borderRadius="2xl"
-                bg="rgba(20, 20, 20, 0.8)"
-                backdropFilter="blur(20px)"
-                border="1px solid"
-                borderColor="rgba(255, 255, 255, 0.2)"
-                p={8}
-                h="100%"
-                display="flex"
-                flexDirection="column"
-                _hover={{
-                  borderColor: "rgba(255, 255, 255, 0.4)",
-                  boxShadow: "0 25px 50px rgba(255, 255, 255, 0.1)",
-                  transform: "translateY(-8px)",
-                }}
-                transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
+                w="4px"
+                h="28px"
+                bgGradient="linear(to-b, #ffffff, #a3a3a3)"
+                borderRadius="full"
+              />
+              <Text
+                fontSize={{ base: "sm", md: "md" }}
+                fontWeight="700"
+                color="gray.300"
+                textTransform="uppercase"
+                letterSpacing="0.15em"
               >
-                {/* Gradient Border Top */}
-                <Box
-                  position="absolute"
-                  top={0}
-                  left={0}
-                  right={0}
-                  h="3px"
-                  bgGradient="linear(to-r, #ffffff, #e5e5e5, #d4d4d4, #a3a3a3)"
-                  borderRadius="2xl 2xl 0 0"
-                />
-
-                <VStack align="stretch" spacing={6} flex="1">
-                  {/* Header */}
-                  <HStack justify="space-between" align="flex-start" flexWrap="wrap" gap={4}>
-                    <Badge
-                      px={4}
-                      py={2}
-                      borderRadius="full"
-                      bg="rgba(255, 255, 255, 0.1)"
-                      color="#e5e5e5"
-                      border="1px solid"
-                      borderColor="rgba(255, 255, 255, 0.2)"
-                      fontSize="xs"
-                      fontWeight="700"
-                      textTransform="uppercase"
-                      letterSpacing="wide"
-                    >
-                      {project.category}
-                    </Badge>
-                  </HStack>
-
-                  {/* Title */}
-                  <Heading
-                    fontSize={{ base: "xl", md: "2xl" }}
-                    fontWeight="700"
-                    color="white"
-                    lineHeight="1.3"
-                  >
-                    {project.title}
-                  </Heading>
-
-                  {/* Description */}
-                  <Text
-                    color="gray.300"
-                    lineHeight="1.8"
-                    fontSize={{ base: "sm", md: "md" }}
-                  >
-                    {project.description}
-                  </Text>
-
-                  {/* Highlights */}
-                  <Box flex="1">
-                    <VStack align="stretch" spacing={3}>
-                      {project.highlights.map((highlight, i) => (
-                        <HStack key={i} spacing={3} align="flex-start">
-                          <Box
-                            w="6px"
-                            h="6px"
-                            borderRadius="full"
-                            bg="#ffffff"
-                            mt={2}
-                            flexShrink={0}
-                          />
-                          <Text
-                            color="gray.300"
-                            fontSize={{ base: "xs", md: "sm" }}
-                            lineHeight="1.7"
-                            flex={1}
-                          >
-                            {highlight}
-                          </Text>
-                        </HStack>
-                      ))}
-                    </VStack>
-                  </Box>
-
-                  {/* Technologies */}
-                  <Box>
-                    <HStack spacing={2} flexWrap="wrap">
-                      {project.technologies.map((tech, i) => (
-                        <Tag
-                          key={i}
-                          size="sm"
-                          bg="rgba(255, 255, 255, 0.1)"
-                          color="#e5e5e5"
-                          border="1px solid"
-                          borderColor="rgba(255, 255, 255, 0.2)"
-                          borderRadius="md"
-                          px={3}
-                          py={1}
-                          fontSize="xs"
-                          fontWeight="600"
-                        >
-                          {tech}
-                        </Tag>
-                      ))}
-                    </HStack>
-                  </Box>
-
-                  {/* Action Button - Only View Code */}
-                  <HStack spacing={4} pt={2}>
-                    <Link href={project.links.github} isExternal w="100%">
-                      <Button
-                        leftIcon={<FaGithub />}
-                        w="100%"
-                        variant="outline"
-                        borderColor="rgba(255, 255, 255, 0.3)"
-                        color="#ffffff"
-                        bg="transparent"
-                        borderRadius="xl"
-                        py={6}
-                        fontSize="sm"
-                        fontWeight="600"
-                        _hover={{
-                          bg: "rgba(59, 130, 246, 0.15)",
-                          borderColor: "#ffffff",
-                          color: "#ffffff",
-                        }}
-                        transition="all 0.3s ease"
-                      >
-                        View Code
-                      </Button>
-                    </Link>
-                  </HStack>
-                </VStack>
-              </Box>
-            </MotionBox>
-          ))}
+                Data Analysis
+              </Text>
+            </HStack>
+          </MotionBox>
+          <MotionBox
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <HStack spacing={3} mb={4}>
+              <Box
+                w="4px"
+                h="28px"
+                bgGradient="linear(to-b, #ffffff, #a3a3a3)"
+                borderRadius="full"
+              />
+              <Text
+                fontSize={{ base: "sm", md: "md" }}
+                fontWeight="700"
+                color="gray.300"
+                textTransform="uppercase"
+                letterSpacing="0.15em"
+              >
+                Data Science
+              </Text>
+            </HStack>
+          </MotionBox>
         </SimpleGrid>
 
-        {/* GitHub Link Section */}
+        {/* Projects grid — left: Data Analysis, right: Data Science */}
+        <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={8}>
+          {/* Left Column: Data Analysis */}
+          <VStack spacing={8} align="stretch">
+            {dataAnalysisProjects.map((project, index) => (
+              <ProjectCard key={index} project={project} index={index} />
+            ))}
+          </VStack>
+
+          {/* Right Column: Data Science */}
+          <VStack spacing={8} align="stretch">
+            {dataScienceProjects.map((project, index) => (
+              <ProjectCard key={index} project={project} index={index + 3} />
+            ))}
+          </VStack>
+        </SimpleGrid>
+
+        {/* GitHub Link Section — updated text, no GitHub header logo */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <Box
-            mt={16}
-            textAlign="center"
-          >
+          <Box mt={16} textAlign="center">
             <VStack spacing={6}>
               <Text
                 color="gray.400"
                 fontSize={{ base: "md", md: "lg" }}
                 maxW="2xl"
                 mx="auto"
+                lineHeight="1.8"
               >
-                Want to see more of my work? Check out my GitHub profile for additional projects and contributions.
+                I've built numerous projects across Machine Learning, Data Science, NLP, and Generative AI — from recommendation systems and credit risk models to RAG pipelines and cybersecurity dashboards. Each repository represents a learning journey and a solution to real-world problems.
               </Text>
               <Link href="https://github.com/sohamnp06" isExternal>
                 <Button
@@ -380,7 +438,7 @@ const Projects = () => {
                   }}
                   transition="all 0.3s ease"
                 >
-                  View All Projects on GitHub
+                  View All Projects on GitHub →
                 </Button>
               </Link>
             </VStack>

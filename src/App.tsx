@@ -63,8 +63,8 @@ const pageTransition = {
 // Lazy load components
 const About = lazy(() => import('./components/About'));
 const Projects = lazy(() => import('./components/Projects'));
-const GitHubShowcase = lazy(() => import('./components/GitHubShowcase'));
 const Expertise = lazy(() => import('./components/Expertise'));
+
 const Contact = lazy(() => import('./components/Contact'));
 
 const LoadingSpinner = () => (
@@ -122,20 +122,6 @@ function App() {
             >
               <Suspense fallback={<LoadingSpinner />}>
                 <Projects />
-              </Suspense>
-            </motion.div>
-          </Box>
-
-          {/* GitHub Showcase */}
-          <Box py={0} mt={0}>
-            <motion.div
-              variants={pageTransition}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              <Suspense fallback={<LoadingSpinner />}>
-                <GitHubShowcase />
               </Suspense>
             </motion.div>
           </Box>
