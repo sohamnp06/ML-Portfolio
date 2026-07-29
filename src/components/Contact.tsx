@@ -372,10 +372,12 @@ const Contact = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <Link
-                href="/resume.pdf"
-                download
+              <Box
+                as="a"
+                href="/journey/Soham-Resume.pdf"
+                download="Soham-Resume.pdf"
                 w="100%"
+                display="block"
                 _hover={{ textDecoration: "none" }}
               >
                 <Button
@@ -387,6 +389,7 @@ const Contact = () => {
                   bgGradient="linear(to-r, #4ecdc4, #44a08d)"
                   color="#ffffff"
                   borderRadius="xl"
+                  pointerEvents="none"
                   _hover={{
                     bgGradient: "linear(to-r, #44a08d, #3b8d7a)",
                     transform: "translateY(-4px)",
@@ -396,8 +399,9 @@ const Contact = () => {
                 >
                   Download My Resume
                 </Button>
-              </Link>
+              </Box>
             </MotionBox>
+
           </VStack>
         </SimpleGrid>
       </Container>
