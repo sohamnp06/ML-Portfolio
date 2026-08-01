@@ -9,7 +9,7 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaTrophy } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
 const MotionBox = motion(Box);
@@ -258,6 +258,48 @@ const Hero = () => {
                   Let's Talk
                 </Button>
               </HStack>
+            </MotionBox>
+
+            {/* TCS Hackathon Badge */}
+            <MotionBox
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+            >
+              <Box
+                as="a"
+                href="#achievements"
+                display="inline-flex"
+                alignItems="center"
+                gap={3}
+                px={5}
+                py={3}
+                borderRadius="full"
+                bg="rgba(255, 215, 0, 0.08)"
+                border="1px solid"
+                borderColor="rgba(255, 215, 0, 0.35)"
+                cursor="pointer"
+                textDecoration="none"
+                _hover={{
+                  bg: "rgba(255, 215, 0, 0.15)",
+                  borderColor: "rgba(255, 215, 0, 0.6)",
+                  transform: "translateY(-2px)",
+                  boxShadow: "0 8px 25px rgba(255, 215, 0, 0.12)",
+                }}
+                transition="all 0.3s ease"
+              >
+                <Icon as={FaTrophy} color="#FFD700" boxSize={4} />
+                <Text
+                  fontSize="xs"
+                  fontWeight="700"
+                  color="#FFD700"
+                  letterSpacing="0.08em"
+                  textTransform="uppercase"
+                  fontFamily="'Space Grotesk', sans-serif"
+                >
+                  TCS AI Hackathon 2026 — 2nd Runner-Up 🥉
+                </Text>
+              </Box>
             </MotionBox>
 
             {/* Social Media Icons */}

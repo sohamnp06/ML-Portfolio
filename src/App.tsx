@@ -62,6 +62,7 @@ const pageTransition = {
 
 // Lazy load components
 const About = lazy(() => import('./components/About'));
+const Achievements = lazy(() => import('./components/Achievements'));
 const Projects = lazy(() => import('./components/Projects'));
 const Expertise = lazy(() => import('./components/Expertise'));
 
@@ -94,6 +95,20 @@ function App() {
             >
               <Suspense fallback={<LoadingSpinner />}>
                 <About />
+              </Suspense>
+            </motion.div>
+          </Box>
+
+          {/* Achievements Section */}
+          <Box py={0} mt={0} id="achievements">
+            <motion.div
+              variants={pageTransition}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              <Suspense fallback={<LoadingSpinner />}>
+                <Achievements />
               </Suspense>
             </motion.div>
           </Box>
