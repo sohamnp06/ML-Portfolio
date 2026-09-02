@@ -94,7 +94,7 @@ const Achievements = () => {
                 <Heading
                   as="h2"
                   size="2xl"
-                  fontSize={{ base: "5xl", md: "7xl", lg: "8xl" }}
+                  fontSize={{ base: "2xl", sm: "4xl", md: "7xl", lg: "8xl" }}
                   color="white"
                   fontWeight="700"
                   letterSpacing="0.1em"
