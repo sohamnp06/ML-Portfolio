@@ -17,7 +17,6 @@ import {
   FaExternalLinkAlt,
   FaCheckCircle,
   FaFilePdf,
-  FaShieldAlt,
 } from "react-icons/fa";
 
 const MotionBox = motion(Box);
@@ -30,7 +29,6 @@ const certificationsData = [
     date: "June 26th, 2026",
     period: "June 2026",
     certificateUrl: encodeURI("/journey/Deloitte Data Analytics Certificate.pdf"),
-    verificationCode: "Enrolment: yY3oc4FDhQitgMbZm | User: 6a3d4f81ef20d3e875bd1c60",
     tasks: [
       "Completed practical tasks in Data Analysis and Forensic Technology for Deloitte Australia.",
       "Analyzed complex manufacturing data to identify machine-downtime patterns and operational bottlenecks.",
@@ -104,22 +102,19 @@ const Certifications = () => {
             viewport={{ once: true }}
           >
             <Box textAlign="center">
-              <HStack justify="center" spacing={4} mb={4}>
-                <Icon as={FaCertificate} color="white" boxSize={8} />
-                <Heading
-                  as="h2"
-                  size="2xl"
-                  fontSize={{ base: "4xl", md: "7xl", lg: "8xl" }}
-                  color="white"
-                  fontWeight="700"
-                  letterSpacing="0.1em"
-                  textTransform="uppercase"
-                  fontFamily="'Space Grotesk', sans-serif"
-                >
-                  Certifications
-                </Heading>
-                <Icon as={FaCertificate} color="white" boxSize={8} />
-              </HStack>
+              <Heading
+                as="h2"
+                size="2xl"
+                mb={4}
+                fontSize={{ base: "4xl", md: "7xl", lg: "8xl" }}
+                color="white"
+                fontWeight="700"
+                letterSpacing="0.1em"
+                textTransform="uppercase"
+                fontFamily="'Space Grotesk', sans-serif"
+              >
+                Certifications
+              </Heading>
               <Text
                 fontSize={{ base: "sm", md: "md", lg: "lg" }}
                 color="gray.400"
@@ -356,22 +351,6 @@ const Certifications = () => {
                       ))}
                     </HStack>
                   </VStack>
-
-                  {/* Verification Info Footer */}
-                  <Box
-                    p={4}
-                    bg="rgba(255, 255, 255, 0.03)"
-                    border="1px solid"
-                    borderColor="rgba(255, 255, 255, 0.08)"
-                    borderRadius="xl"
-                  >
-                    <HStack spacing={3} flexWrap="wrap">
-                      <Icon as={FaShieldAlt} color="gray.400" boxSize={4} />
-                      <Text color="gray.400" fontSize="xs" fontFamily="mono">
-                        Verification Codes: {cert.verificationCode}
-                      </Text>
-                    </HStack>
-                  </Box>
                 </VStack>
               </Box>
             </MotionBox>

@@ -10,7 +10,7 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { FaTrophy, FaMedal, FaBrain, FaSearch, FaCode } from "react-icons/fa";
+import { FaMedal, FaBrain, FaSearch, FaCode } from "react-icons/fa";
 
 const MotionBox = motion(Box);
 
@@ -89,22 +89,19 @@ const Achievements = () => {
             viewport={{ once: true }}
           >
             <Box textAlign="center">
-              <HStack justify="center" spacing={4} mb={4}>
-                <Icon as={FaTrophy} color="#FFD700" boxSize={8} />
-                <Heading
-                  as="h2"
-                  size="2xl"
-                  fontSize={{ base: "2xl", sm: "4xl", md: "7xl", lg: "8xl" }}
-                  color="white"
-                  fontWeight="700"
-                  letterSpacing="0.1em"
-                  textTransform="uppercase"
-                  fontFamily="'Space Grotesk', sans-serif"
-                >
-                  Achievements
-                </Heading>
-                <Icon as={FaTrophy} color="#FFD700" boxSize={8} />
-              </HStack>
+              <Heading
+                as="h2"
+                size="2xl"
+                mb={4}
+                fontSize={{ base: "2xl", sm: "4xl", md: "7xl", lg: "8xl" }}
+                color="white"
+                fontWeight="700"
+                letterSpacing="0.1em"
+                textTransform="uppercase"
+                fontFamily="'Space Grotesk', sans-serif"
+              >
+                Achievements
+              </Heading>
               <Text
                 fontSize={{ base: "sm", md: "md", lg: "lg" }}
                 color="gray.400"

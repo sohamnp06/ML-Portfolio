@@ -12,7 +12,6 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import {
-  FaBriefcase,
   FaCalendarAlt,
   FaMapMarkerAlt,
   FaExternalLinkAlt,
@@ -103,22 +102,19 @@ const Experience = () => {
             viewport={{ once: true }}
           >
             <Box textAlign="center">
-              <HStack justify="center" spacing={4} mb={4}>
-                <Icon as={FaBriefcase} color="white" boxSize={8} />
-                <Heading
-                  as="h2"
-                  size="2xl"
-                  fontSize={{ base: "4xl", md: "7xl", lg: "8xl" }}
-                  color="white"
-                  fontWeight="700"
-                  letterSpacing="0.1em"
-                  textTransform="uppercase"
-                  fontFamily="'Space Grotesk', sans-serif"
-                >
-                  Experience
-                </Heading>
-                <Icon as={FaBriefcase} color="white" boxSize={8} />
-              </HStack>
+              <Heading
+                as="h2"
+                size="2xl"
+                mb={4}
+                fontSize={{ base: "4xl", md: "7xl", lg: "8xl" }}
+                color="white"
+                fontWeight="700"
+                letterSpacing="0.1em"
+                textTransform="uppercase"
+                fontFamily="'Space Grotesk', sans-serif"
+              >
+                Experience
+              </Heading>
               <Text
                 fontSize={{ base: "sm", md: "md", lg: "lg" }}
                 color="gray.400"
