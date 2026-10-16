@@ -62,10 +62,11 @@ const pageTransition = {
 
 // Lazy load components
 const About = lazy(() => import('./components/About'));
+const Experience = lazy(() => import('./components/Experience'));
 const Achievements = lazy(() => import('./components/Achievements'));
 const Projects = lazy(() => import('./components/Projects'));
 const Expertise = lazy(() => import('./components/Expertise'));
-
+const Certifications = lazy(() => import('./components/Certifications'));
 const Contact = lazy(() => import('./components/Contact'));
 
 const LoadingSpinner = () => (
@@ -95,6 +96,20 @@ function App() {
             >
               <Suspense fallback={<LoadingSpinner />}>
                 <About />
+              </Suspense>
+            </motion.div>
+          </Box>
+
+          {/* Experience Section */}
+          <Box py={0} mt={0} id="experience">
+            <motion.div
+              variants={pageTransition}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              <Suspense fallback={<LoadingSpinner />}>
+                <Experience />
               </Suspense>
             </motion.div>
           </Box>
@@ -137,6 +152,20 @@ function App() {
             >
               <Suspense fallback={<LoadingSpinner />}>
                 <Projects />
+              </Suspense>
+            </motion.div>
+          </Box>
+
+          {/* Certifications Section */}
+          <Box py={0} mt={0} id="certifications">
+            <motion.div
+              variants={pageTransition}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              <Suspense fallback={<LoadingSpinner />}>
+                <Certifications />
               </Suspense>
             </motion.div>
           </Box>

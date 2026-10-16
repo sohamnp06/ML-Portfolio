@@ -8,9 +8,11 @@ const Navigation: React.FC = () => {
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Achievements', href: '#achievements' },
     { name: 'Tech Stack', href: '#expertise' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Certifications', href: '#certifications' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -73,7 +75,7 @@ const Navigation: React.FC = () => {
           </Link>
         </motion.div>
 
-        <Flex gap={8} display={{ base: 'none', md: 'flex' }}>
+        <Flex gap={{ md: 4, lg: 6, xl: 8 }} display={{ base: 'none', md: 'flex' }}>
           {navItems.map((item, index) => (
             <motion.div
               key={item.name}
